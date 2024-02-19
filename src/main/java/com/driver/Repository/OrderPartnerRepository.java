@@ -68,6 +68,10 @@ public class OrderPartnerRepository
 
     public int getOrderCountByPartnerId(String partnerId)
     {
+        if(deliveryBoyListOfOrders==null)
+        {
+            deliveryBoyListOfOrders=new HashMap<>();
+        }
         if(!deliveryBoyListOfOrders.containsKey(partnerId))
         {
             deliveryBoyListOfOrders.put(partnerId,new ArrayList<>());
