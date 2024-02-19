@@ -1,10 +1,19 @@
 package com.driver;
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
+import javax.annotation.processing.Generated;
+
+
 public class DeliveryPartner {
 
     private String id;
     private int numberOfOrders;
 
+    public DeliveryPartner()
+    {
+
+    }
     public DeliveryPartner(String id) {
         this.id = id;
         this.numberOfOrders = 0;
