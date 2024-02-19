@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class DeliveryPartnerService
 {
-    @Autowired
-    DeliveryPartnerRepository deliveryPartnerRepository;
+
+    DeliveryPartnerRepository deliveryPartnerRepository=new DeliveryPartnerRepository();
     public void addPartner(String partnerId)
     {
         deliveryPartnerRepository.addPartner(partnerId);

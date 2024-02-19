@@ -23,14 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController
 {
 
-    @Autowired
-    OrderService orderService;
 
-    @Autowired
-    DeliveryPartnerService deliveryPartnerService;
+    OrderService orderService=new OrderService();
 
-    @Autowired
-    OrderPartnerService orderPartnerService;
+
+    DeliveryPartnerService deliveryPartnerService=new DeliveryPartnerService();
+
+
+    OrderPartnerService orderPartnerService=new OrderPartnerService();
 
 
     @PostMapping("/add-order")

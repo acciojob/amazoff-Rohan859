@@ -20,11 +20,11 @@ public class OrderPartnerRepository
 
     HashMap<String,String>orderIdToPartnerIdMap=new HashMap<>(); //oederId -> partnerId
 
-    @Autowired
-    OrderService orderService;
 
-    @Autowired
-    DeliveryPartnerService deliveryPartnerService;
+    OrderService orderService=new OrderService();
+
+
+    DeliveryPartnerService deliveryPartnerService=new DeliveryPartnerService();
 
     public int getLastDeliveryTimeByPartnerId(String partnerId)
     {

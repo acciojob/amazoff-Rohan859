@@ -9,8 +9,8 @@ import java.util.List;
 @Service
 public class OrderPartnerService
 {
-    @Autowired
-    OrderPartnerRepository orderPartnerRepository;
+
+    OrderPartnerRepository orderPartnerRepository=new OrderPartnerRepository();
 
     public void addOrderPartnerPair(String orderId,String partnerId)
     {

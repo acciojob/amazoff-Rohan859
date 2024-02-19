@@ -14,14 +14,14 @@ public class OrderRepository
 {
     HashMap<String,Order>orderMap=new HashMap<>(); //id->Order object
 
-    @Autowired
-    OrderPartnerService orderPartnerService;
 
-    @Autowired
-    OrderPartnerRepository orderPartnerRepository;
+    OrderPartnerService orderPartnerService=new OrderPartnerService();
 
-    @Autowired
-    DeliveryPartnerRepository deliveryPartnerRepository;
+
+    OrderPartnerRepository orderPartnerRepository=new OrderPartnerRepository();
+
+
+    DeliveryPartnerRepository deliveryPartnerRepository=new DeliveryPartnerRepository();
     List<String>orders=new ArrayList<>();
 
 
