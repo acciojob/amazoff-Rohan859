@@ -81,16 +81,9 @@ public class OrderController
     {
 
         Integer orderCount = 0;
-
-        try
-        {
-            //orderCount should denote the orders given by a partner-id
+             //orderCount should denote the orders given by a partner-id
             orderCount=orderPartnerService.getOrderCountByPartnerId(partnerId);
-        }
-        catch (Exception e)
-        {
-            
-        }
+
 
         return new ResponseEntity<>(orderCount, HttpStatus.CREATED);
     }
