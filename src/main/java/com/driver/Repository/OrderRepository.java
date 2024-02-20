@@ -35,15 +35,20 @@ public class OrderRepository
 
     public void addOrderPartnerPair(String orderId, @RequestParam String partnerId)
     {
+        List<String>order;
         if(!partnerListOfOrders.containsKey(partnerId))
         {
-            partnerListOfOrders.put(partnerId,new ArrayList<>());
+            order=new ArrayList<>();
+        }
+        else
+        {
+            order=partnerListOfOrders.get(partnerId);
         }
 
-        partnerListOfOrders.get(partnerId).add(orderId);
-
-        deliveryPartnerDB.get(partnerId).setNumberOfOrders(deliveryPartnerDB.get(partnerId).getNumberOfOrders()+1);
-
+        order.add(orderId);
+        partnerListOfOrders.put(partnerId,order);
+        DeliveryPartner deliveryPartner=deliveryPartnerDB.get(partnerId);
+        deliveryPartner.setNumberOfOrders(deliveryPartner.getNumberOfOrders()+1);
         notAssignedOrders.remove(orderId);
     }
 
