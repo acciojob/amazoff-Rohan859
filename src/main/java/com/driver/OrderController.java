@@ -50,7 +50,7 @@ public class OrderController
 
         Order order= null;
         //order should be returned with an orderId.
-        orderRepository.getOrderById(orderId);
+        order=orderRepository.getOrderById(orderId);
         return new ResponseEntity<>(order, HttpStatus.CREATED);
     }
 
