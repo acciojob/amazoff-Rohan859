@@ -113,7 +113,7 @@ public class OrderRepository
 
            Order obj=orderDB.get(id);
 
-            if(myTime>obj.getDeliveryTime())
+            if(myTime<obj.getDeliveryTime())
             {
                 count++;
             }
