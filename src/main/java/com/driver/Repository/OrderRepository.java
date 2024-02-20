@@ -3,7 +3,7 @@ package com.driver.Repository;
 import com.driver.DeliveryPartner;
 import com.driver.Order;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class OrderRepository
         deliveryPartnerDB.put(partnerId,deliveryPartner);
     }
 
-    public void addOrderPartnerPair(String orderId, @RequestParam String partnerId)
+    public void addOrderPartnerPair(String orderId,String partnerId)
     {
         List<String>order;
         if(!partnerListOfOrders.containsKey(partnerId))
