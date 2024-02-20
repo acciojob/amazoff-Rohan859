@@ -151,4 +151,30 @@ public class OrderRepository
         return HH+":"+MM;
     }
 
+    public void deletePartnerById(String partnerId)
+    {
+        //Delete the partnerId
+        //And push all his assigned orders to unassigned orders.
+        if(!deliveryPartnerDB.containsKey(partnerId))
+        {
+            return;
+        }
+
+        List<String>orderList=partnerListOfOrders.get(partnerId);
+
+        deliveryPartnerDB.remove(partnerId);
+        partnerListOfOrders.remove(partnerId);
+
+        if(orderList==null || orderList.size()==0)
+        {
+            return;
+        }
+
+        for(String key:orderList)
+        {
+            orders.remove(key);
+            notAssignedOrders.add(key);
+        }
+    }
+
 }

@@ -141,7 +141,7 @@ public class OrderController
 
         //Delete the partnerId
         //And push all his assigned orders to unassigned orders.
-
+        orderRepository.deletePartnerById(partnerId);
         return new ResponseEntity<>(partnerId + " removed successfully", HttpStatus.CREATED);
     }
 
