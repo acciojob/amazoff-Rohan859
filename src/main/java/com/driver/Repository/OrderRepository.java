@@ -121,4 +121,34 @@ public class OrderRepository
         return count;
     }
 
+    public String getLastDeliveryTimeByPartnerId(String partnerId)
+    {
+        List<String>orders=partnerListOfOrders.get(partnerId);
+        if(orders==null)
+        {
+            return null;
+        }
+
+        int time=0;
+
+        for(String key:orders)
+        {
+            Order obj=orderDB.get(key);
+            if(time<obj.getDeliveryTime())
+            {
+                time=obj.getDeliveryTime();
+            }
+        }
+
+        //make string
+        //format: HH:MM
+        int mm=time%60;
+        String MM=(mm>=0 && mm<=9)?("0"+mm):(mm+"");
+
+        int hh=(time-mm)/60;
+        String HH=(hh>=0 && hh<=9)?("0"+hh):(hh+"");
+
+        return HH+":"+MM;
+    }
+
 }
