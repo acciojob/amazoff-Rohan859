@@ -85,6 +85,7 @@ public class OrderController
 
         //orders should contain a list of orders by PartnerId
 
+        orders=orderRepository.getOrdersByPartnerId(partnerId);
 
         return new ResponseEntity<>(orders, HttpStatus.CREATED);
     }
@@ -95,7 +96,7 @@ public class OrderController
         List<String> orders = null;
 
         //Get all orders
-
+        orders=orderRepository.getAllOrders();
         return new ResponseEntity<>(orders, HttpStatus.CREATED);
     }
 

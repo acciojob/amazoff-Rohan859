@@ -71,4 +71,20 @@ public class OrderRepository
         return partnerListOfOrders.get(partnerId).size();
     }
 
+    public List<String>getOrdersByPartnerId(String partnerId)
+    {
+        return partnerListOfOrders.get(partnerId);
+    }
+
+    public List<String>getAllOrders()
+    {
+        List<String>ans=new ArrayList<>();
+        for(String key:orderDB.keySet())
+        {
+            Order obj=orderDB.get(key);
+            ans.add(obj.getId());
+        }
+        return ans;
+    }
+
 }
