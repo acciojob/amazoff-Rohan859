@@ -72,6 +72,7 @@ public class OrderController
             Integer orderCount = 0;
              //orderCount should denote the orders given by a partner-id
 
+           orderCount=orderRepository.getOrderCountByPartnerId(partnerId);
 
 
         return new ResponseEntity<>(orderCount, HttpStatus.CREATED);
