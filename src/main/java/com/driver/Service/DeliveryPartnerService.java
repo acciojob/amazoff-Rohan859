@@ -2,6 +2,7 @@ package com.driver.Service;
 
 import com.driver.DeliveryPartner;
 import com.driver.Repository.DeliveryPartnerRepository;
+import com.driver.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,14 +10,26 @@ import org.springframework.stereotype.Service;
 public class DeliveryPartnerService
 {
 
-    DeliveryPartnerRepository deliveryPartnerRepository=new DeliveryPartnerRepository();
-    public void addPartner(String partnerId)
-    {
-        deliveryPartnerRepository.addPartner(partnerId);
+    @Autowired
+    private DeliveryPartnerRepository deliveryPartnerRepository;
+    @Autowired
+    private OrderRepository orderRepository;
+
+    public void addDeliveryPartner(DeliveryPartner partner) {
+        deliveryPartnerRepository.save(partner);
     }
 
-    public DeliveryPartner getPartnerById(String id)
-    {
-        return deliveryPartnerRepository.getPartnerById(id);
+    public DeliveryPartner getDeliveryPartnerById(String partnerId) {
+        return deliveryPartnerRepository.findById(partnerId);
     }
+
+    public void deleteDeliveryPartnerById(String partnerId) {
+        deliveryPartnerRepository.deleteById(partnerId);
+    }
+
+    public void deletePartnerById(String partnerId) {
+        deliveryPartnerRepository.deleteById(partnerId);
+        orderRepository.reassignOrdersToUnassigned(partnerId);
+    }
+
 }

@@ -1,31 +1,28 @@
 package com.driver.Repository;
 
 import com.driver.DeliveryPartner;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @Repository
 public class DeliveryPartnerRepository
 {
-    HashMap<String,DeliveryPartner>deliveryPartnerMap=new HashMap<>(); //id->Delivery Object
+    private final Map<String, DeliveryPartner> deliveryPartners = new HashMap<>();
 
-    public HashMap<String, DeliveryPartner> getDeliveryPartnerMap() {
-        return deliveryPartnerMap;
+    public void save(DeliveryPartner partner) {
+        deliveryPartners.put(partner.getId(), partner);
     }
 
-    public void addPartner(String partnerId)
-    {
-        DeliveryPartner deliveryPartner=new DeliveryPartner(partnerId);
-        deliveryPartnerMap.put(partnerId,deliveryPartner);
-
-
+    public DeliveryPartner findById(String partnerId) {
+        return deliveryPartners.get(partnerId);
     }
 
-    public DeliveryPartner getPartnerById(String id)
-    {
-        return deliveryPartnerMap.get(id);
+    public void deleteById(String partnerId) {
+        deliveryPartners.remove(partnerId);
     }
+
+
+
 }
