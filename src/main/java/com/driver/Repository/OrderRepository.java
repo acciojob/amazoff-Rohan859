@@ -49,6 +49,7 @@ public class OrderRepository
         partnerListOfOrders.put(partnerId,order);
         DeliveryPartner deliveryPartner=deliveryPartnerDB.get(partnerId);
         deliveryPartner.setNumberOfOrders(deliveryPartner.getNumberOfOrders()+1);
+        deliveryPartnerDB.put(partnerId,deliveryPartner);
         notAssignedOrders.remove(orderId);
     }
 
