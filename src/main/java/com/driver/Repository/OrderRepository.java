@@ -189,6 +189,7 @@ public class OrderRepository
                 break;
             }
         }
+        orderDB.remove(orderId);
     }
 
 }
