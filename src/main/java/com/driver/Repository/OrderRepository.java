@@ -52,4 +52,9 @@ public class OrderRepository
         notAssignedOrders.remove(orderId);
     }
 
+    public Order getOrderById(String orderId)
+    {
+        return orderDB.get(orderId);
+    }
+
 }
