@@ -87,4 +87,9 @@ public class OrderRepository
         return ans;
     }
 
+    public Integer getCountOfUnassignedOrders()
+    {
+        return notAssignedOrders.size();
+    }
+
 }
