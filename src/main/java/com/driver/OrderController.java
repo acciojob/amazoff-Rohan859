@@ -151,7 +151,7 @@ public class OrderController
 
         //Delete an order and also
         // remove it from the assigned order of that partnerId
-
+        orderRepository.deleteOrderById(orderId);
         return new ResponseEntity<>(orderId + " removed successfully", HttpStatus.CREATED);
     }
 }

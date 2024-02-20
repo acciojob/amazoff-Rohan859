@@ -177,4 +177,18 @@ public class OrderRepository
         }
     }
 
+    public void deleteOrderById(String orderId)
+    {
+        //Delete an order and also
+        // remove it from the assigned order of that partnerId
+        for(List<String>arr:partnerListOfOrders.values())
+        {
+            if(arr.contains(orderId))
+            {
+                arr.remove(orderId);
+                break;
+            }
+        }
+    }
+
 }
