@@ -61,7 +61,7 @@ public class OrderController
         DeliveryPartner deliveryPartner = null;
 
         //deliveryPartner should contain the value given by partnerId
-
+        deliveryPartner=orderRepository.getPartnerById(partnerId);
         return new ResponseEntity<>(deliveryPartner, HttpStatus.CREATED);
     }
 

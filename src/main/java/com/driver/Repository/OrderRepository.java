@@ -57,4 +57,9 @@ public class OrderRepository
         return orderDB.get(orderId);
     }
 
+    public DeliveryPartner getPartnerById(String partnerId)
+    {
+        return deliveryPartnerDB.get(partnerId);
+    }
+
 }
