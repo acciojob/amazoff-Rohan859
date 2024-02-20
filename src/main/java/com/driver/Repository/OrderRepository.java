@@ -2,6 +2,7 @@ package com.driver.Repository;
 
 import com.driver.DeliveryPartner;
 import com.driver.Order;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 import java.util.ArrayList;
@@ -90,6 +91,37 @@ public class OrderRepository
     public Integer getCountOfUnassignedOrders()
     {
         return notAssignedOrders.size();
+    }
+
+    public Integer getOrdersLeftAfterGivenTimeByPartnerId(String time, String partnerId)
+    {
+        List<String>orders=partnerListOfOrders.get(partnerId);
+        if(orders==null)
+        {
+            return 0;
+        }
+
+        String arr1[]=time.split(":");
+        int hh1=60*Integer.parseInt(arr1[0]);
+        int mm1=Integer.parseInt(arr1[1]);
+        int myTime=hh1+mm1;
+
+        int count=0;
+
+        for(String val:orders)
+        {
+            String arr[]=val.split(":");
+            int hh=60*Integer.parseInt(arr[0]);
+            int mm=Integer.parseInt(arr[1]);
+
+            int temp=hh+mm;
+
+            if(myTime>temp)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
 }

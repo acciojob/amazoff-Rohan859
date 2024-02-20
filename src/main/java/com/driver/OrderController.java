@@ -118,6 +118,7 @@ public class OrderController
         Integer countOfOrders = 0;
 
         //countOfOrders that are left after a particular time of a DeliveryPartner
+        countOfOrders=orderRepository.getOrdersLeftAfterGivenTimeByPartnerId(time,partnerId);
 
         // Assuming that 'time' is in the HH:MM format
 
