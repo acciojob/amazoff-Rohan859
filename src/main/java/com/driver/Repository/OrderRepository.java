@@ -108,15 +108,12 @@ public class OrderRepository
 
         int count=0;
 
-        for(String val:orders)
+        for(String id:orders)
         {
-            String arr[]=val.split(":");
-            int hh=60*Integer.parseInt(arr[0]);
-            int mm=Integer.parseInt(arr[1]);
 
-            int temp=hh+mm;
+           Order obj=orderDB.get(id);
 
-            if(myTime>temp)
+            if(myTime>obj.getDeliveryTime())
             {
                 count++;
             }
